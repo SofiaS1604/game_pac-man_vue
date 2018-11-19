@@ -1,1 +1,1 @@
-# game_pac-men_vue
+# game_pac-man_vue
