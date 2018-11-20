@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 // import VueResource from "vue-resource";
 import routes from './utils/routes';
-import RootPage from './pages/App.vue';
+import RootPage from './pages/MyGame.vue';
 
 var VueTouch = require('vue-touch');
 

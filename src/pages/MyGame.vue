@@ -19,8 +19,14 @@
                     <div class="cell" v-for="k in 46"></div>
                 </div>
 
+                <div v-if="isShowing" class="circle" :style="circleStyle_1"></div>
+                <!--<div v-if="isShowing" class="circle" :style="circleStyle_2"></div>-->
+                <!--<div v-if="isShowing" class="circle" :style="circleStyle_3"></div>-->
+                <!--<div v-if="isShowing" class="circle" :style="circleStyle_4"></div>-->
+                <!--<div v-if="isShowing" class="circle" :style="circleStyle_5"></div>-->
+
             <!-- Green Square-->
-                <div class="kvadrat" :style="kvadrat"></div> 
+                <div class="square"  :style="square"></div> 
 
                 <my-grid v-if="isShowing"></my-grid>
             </div>
@@ -50,8 +56,17 @@
                 m: null, //minute
                 s: null, //second
                 score: 0,
-                seconds: 10
-
+                seconds: 59, 
+                circleX_1: null,
+                circleY_1: null,
+                circleX_2: null,
+                circleY_2: null,
+                circleX_3: null,
+                circleY_3: null,
+                circleX_4: null,
+                circleY_4: null, 
+                circleX_5: null,
+                circleY_5: null
             }
         },
 
@@ -64,6 +79,7 @@
                 if (this.m === null ) {
                     this.timerStart();
                 }
+                
                 
             }, //disappearance and time
 
@@ -80,13 +96,20 @@
                     }
                     setTimeout(() => {
                         this.timerStart();
+                       
+                        this.circleX_1 = Math.floor(Math.random() * 46);
+                        this.circleY_1 = Math.floor(Math.random() * 36);
+                       
                     }, 1000);
+                    
                 }else{
-                    this.isShowing = false;
+                    this.gameOver()
                 }
             },
 
-      
+            gameOver(){
+                this.isShowing = false;
+            },
 
             left(){
                 if(this.x > 0){
@@ -113,6 +136,9 @@
              }, //move bottom
              
              previous: function (e) {
+                //console.info(green_kvadrat_left)
+                //const green_kvadrat_left = this.$refs.kvadrat.getBoundingClientRect().left; 
+                
                 switch(e.keyCode){
                     case 37: //left arrow
                         this.left();
@@ -138,13 +164,24 @@
         },
 
         computed:{
-            kvadrat(){
-                const green_kvadrat = {};  
-                green_kvadrat.left = this.x*15; //left
-                green_kvadrat.top = this.y*15; //top
-                return green_kvadrat; 
+            square(){
+                const green_square = {};
+            //    console.info(green_square)  
+                green_square.left = this.x*15; //left
+                green_square.top = this.y*15; //top
+                return green_square; 
 
-            }             
+            },
+
+            circleStyle_1(){
+                const red_circle = {};
+                
+                red_circle.left = this.circleX_1*15;
+                console.info(red_circle.left);
+                red_circle.top  = this.circleY_1*15;
+                return red_circle;
+                
+            }
         } 
       
     }   
