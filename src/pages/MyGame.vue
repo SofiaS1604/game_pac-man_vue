@@ -229,7 +229,9 @@
                     this.x === 15   && (this.y < 18 && this.y > 9) ||
                     this.x === 5   && (this.y > 7 && this.y < 13) ||
                     this.x === 10 && (this.y === 13 || this.y === 14) ||
-                    this.x === 38 && (this.y === 13 || this.y === 14)){
+                    this.x === 38 && (this.y === 13 || this.y === 14) ||
+                    this.x === 5 && (this.y > 17 && this.y < 23) ||
+                    this.x === 15 && (this.y > 22 && this.y < 33)){
 
                     }else{
                         this.x --;
@@ -273,7 +275,8 @@
                     (this.x === 18  ||  this.x === 19) &&  this.y === 25 ||
                     (this.x > 2 && this.x < 10) && this.y === 15 ||
                     this.x < 3 &&  this.y === 10 ||
-                    (this.x > 17 && this.x < 38) && this.y === 15 ){
+                    (this.x > 17 && this.x < 38) && this.y === 15 ||
+                    (this.x === 13 || this.x === 14) && this.y === 33 ){
 
                     }else{
                         this.y --;
@@ -293,7 +296,9 @@
                     (this.x > 14 && this.x < 20)  && this.y === 17 ||
                     this.x < 5   && this.y === 7 ||
                     (this.x > 4 && this.x < 10) && this.y === 12 ||
-                    (this.x > 17 && this.x < 38) && this.y === 12){
+                    (this.x > 17 && this.x < 38) && this.y === 12 ||
+                    this.x < 5 && this.y === 17 ||
+                    (this.x > 4 && this.x < 16 ) && this.y === 22 ){
 
                     }else{
                         this.y ++;
