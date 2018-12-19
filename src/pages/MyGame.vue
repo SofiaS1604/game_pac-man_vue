@@ -65,7 +65,7 @@
                 cell:  46, //  width 
                 row: 36,//  height
                 isShowing: false,   
-                CircleShowing_1: false,
+                CircleShowing: false,
                 CircleShowing_2: false,
                 CircleShowing_3: false,
                 CircleShowing_4: false,
@@ -98,20 +98,28 @@
                 this.CircleShowing_4 = !this.CircleShowing_4;
                 this.CircleShowing_5 = !this.CircleShowing_5;
                 this.isShowing = !this.isShowing;
+
+                window.addEventListener('click',  this.gameGrid)
                 
                 
                 if (this.m === null ) {
                     this.timerStart();
                     this.drawCircle();
                     this.gameScore();
+                     
+        
                 }
                 
                 
             }, //disappearance and time
 
+            
+               
+
             timerStart(){
 
-                
+
+
                 if (this.seconds > 0) {
                     this.seconds--;
                     this.m = parseInt(this.seconds / 60) + '';
@@ -125,7 +133,8 @@
                     setTimeout(() => {
                       this.timerStart();
                     }, 1000);
-        
+
+                   
                     
                     
                 }else{
@@ -134,6 +143,7 @@
                     
                 }
             },
+
 
             drawCircle(){
 
@@ -155,14 +165,25 @@
                    this.CircleShowing_3 = true;
                    this.CircleShowing_4 = true;
                    this.CircleShowing_5 = true;
-                   this.gameBlock();
+                   
                    
                 }, 10000)
             },
 
-            gameBlock(){
-                var wall = document.getElementsByClassName('wall_grid');
-                console.info(wall);
+            gameGrid(){
+                let walls = document.getElementsByClassName('wall_grid');
+                console.info(walls)
+                console.info(walls.length);
+                for(let i = 0; i < walls.length; i++){
+                    
+                    console.info(walls[i]);
+                    //let wall = document.getSelection('wall-'+i);
+                    let wall_grids = document.getBoundingClientRect('wall-'+i)
+ 
+                    //console.info(wall);
+                    //console.info(wall.offsetLeft);
+                    console.info(wall_grids);
+                }
                 
             },
 
@@ -211,6 +232,8 @@
 
                 
             },
+
+            
 
             gameOver(){
                 this.isShowing = false; 
