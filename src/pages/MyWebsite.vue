@@ -2,9 +2,13 @@
     <div>
         <my-header></my-header>
         <form action="">
-            Login <input type="text" v-model="login">
-            Password <input type="password" v-model="password">
-            <input type="button" value="Войти"> 
+            Login <label>
+          <input type="text" v-model="login">
+        </label>
+          Password <label>
+          <input type="password" v-model="password">
+        </label>
+          <input type="button" value="Войти">
             <div class="reg_a">Регистрация</div>
         </form>
     </div>    
@@ -22,8 +26,8 @@
             return{
                 login: '',
                 password: '',
-            }
+            };
         }
-    }
+    };
 
 </script>

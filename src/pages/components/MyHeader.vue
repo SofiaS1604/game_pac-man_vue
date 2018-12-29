@@ -3,10 +3,10 @@
         <nav class="navigation">
             <ul>
                 <li class="navigation-list">
-                    <navigation-list url="/game">Игра</navigation-list>
+                    <navigation-list url="/game1">Игра_1</navigation-list>
                 </li>
                 <li class="navigation-list">
-                    <navigation-list url="/game">Игра</navigation-list>
+                  <navigation-list url="/game2">Игра_2</navigation-list>
                 </li>
             </ul>
         </nav>

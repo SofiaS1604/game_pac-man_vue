@@ -1,7 +1,6 @@
 <template>
         <div>
             <!-- Horizontal Block 6 Square -->
-                <!--<a  v-for="item  in 12" class="wall_grid  "   >{{item}}</a>-->
                 
                 <horizontal-grid6 class="wall_grid wall-1"></horizontal-grid6>
                 <horizontal-grid6 class="wall_grid wall-5"></horizontal-grid6>

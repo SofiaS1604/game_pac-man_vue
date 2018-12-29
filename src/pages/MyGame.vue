@@ -1,4 +1,4 @@
-<template >
+<template>
 
 <div class="home-game">
 
@@ -13,7 +13,7 @@
         <button v-if="!isShowing" class="button button_right">Result</button>
         
         <transition name="grid">
-            <div class="grid" v-if="isShowing" >
+            <div class="grid" v-if="isShowing">
                
                 <my-grid v-if="isShowing"></my-grid>
                  <div class="square"  :style="square"></div>
@@ -65,7 +65,7 @@
                 cell:  46, //  width 
                 row: 36,//  height
                 isShowing: false,   
-                CircleShowing: false,
+                CircleShowing_1: false,
                 CircleShowing_2: false,
                 CircleShowing_3: false,
                 CircleShowing_4: false,
@@ -84,7 +84,7 @@
                 circleY_4: null, 
                 circleX_5: null,
                 circleY_5: null
-            }
+            };
         },
 
         
@@ -99,7 +99,7 @@
                 this.CircleShowing_5 = !this.CircleShowing_5;
                 this.isShowing = !this.isShowing;
 
-                window.addEventListener('click',  this.gameGrid)
+                window.addEventListener('click',  this.gameGrid);
                 
                 
                 if (this.m === null ) {
@@ -172,17 +172,22 @@
 
             gameGrid(){
                 let walls = document.getElementsByClassName('wall_grid');
-                console.info(walls)
-                console.info(walls.length);
+                console.info(walls);
+
+                var score = document.getElementsByClassName('title');
+                //console.info(walls.length);
                 for(let i = 0; i < walls.length; i++){
                     
-                    console.info(walls[i]);
+
+
+                    let wall = walls[i];
+
                     //let wall = document.getSelection('wall-'+i);
-                    let wall_grids = document.getBoundingClientRect('wall-'+i)
+                    //let wall_grids = document.getBoundingClientRect(walls[i]);
  
                     //console.info(wall);
                     //console.info(wall.offsetLeft);
-                    console.info(wall_grids);
+                    //console.info(wall_grids);
                 }
                 
             },
@@ -227,8 +232,8 @@
                 }
 
                 setTimeout(() => {
-                    this.gameScore()
-                },10)
+                    this.gameScore();
+                },10);
 
                 
             },
@@ -358,10 +363,10 @@
                         this.top();
                         break;
                     case 39: //right arrow
-                        this.right()
+                        this.right();
                         break;
                     case 40: //bottom arrow
-                        this.bottom()
+                        this.bottom();
                         break;         
                 }
             },
